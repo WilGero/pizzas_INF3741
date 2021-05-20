@@ -31,6 +31,10 @@
            <h1>
                Hola Mundo
            </h1>
+           <h2>
+               Hola bro
+           </h2>
+
         </div>
     </body>
 </html>
