@@ -1,40 +1,35 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+@extends('layouts.app')
+@section('content')
+<div class="card">
+    <div class="card-body">
+        <div id="demo" class="carousel slide" data-ride="carousel">
 
 
-        
-    </head>
-    <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-            @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                    @auth
-                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a>
+            
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-           <h1>
-               Hola Mundo
-           </h1>
-           <h2>
-               Hola bro
-           </h2>
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#demo" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
 
         </div>
-    </body>
-</html>
+
+    </div>
+</div>
+
+
+<!-- 
+  ================================================== -->
+
+<div class="container marketing mt-1">
+
+    <!-- START THE FEATURETTES -->
+    
+
+</div><!-- /.container -->
+
+@endsection
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
