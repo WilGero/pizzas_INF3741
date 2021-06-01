@@ -33,7 +33,7 @@
             <div class="carousel-inner">
                 @foreach ($carruseles as $row)
                 <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-                    <img src="{{ asset ('/storage/carruseles/'.$row->urlimage)}}" alt="{{ $row->urlimage }}" width="1100" height="500">
+                    <img src="{{ asset ('/storage/carrousels/'.$row->urlimage)}}" alt="{{ $row->urlimage }}" width="1100" height="500">
                     <rect width="100%" height="100%" fill="#777" />
                     <div class="container">
                         <div class="carousel-caption text-start">
@@ -70,9 +70,9 @@
 
 @section('css')
 <!-- <link rel="stylesheet" href="/css/admin_custom.css">  -->
-<link rel="stylesheet" href="/css/app.css">
+
 @stop
 
 @section('js')
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
-@stop
+@stopgit

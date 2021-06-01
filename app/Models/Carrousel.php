@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Carrousel extends Model
 {
+    protected $fillable = ['title','description','urlimage'];
     use HasFactory;
 }

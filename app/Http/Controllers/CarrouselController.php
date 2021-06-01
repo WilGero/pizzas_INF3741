@@ -30,7 +30,7 @@ class CarrouselController extends Controller
         ]);
         $carrusel = Carrousel::create([
             'title' => $request->title,
-            'urlimage' => $request->image,
+            'urlimage' => $request->urlimage,
             'description' => $request->description,
 
         ]);
