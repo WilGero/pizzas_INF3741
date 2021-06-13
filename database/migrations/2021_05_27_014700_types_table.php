@@ -15,7 +15,7 @@ class TypesTable extends Migration
     {
         Schema::create('types', function (Blueprint $table) {
             $table->id();
-            $table->string('types');
+            $table->string('type');
             $table->timestamps();
         });
     }

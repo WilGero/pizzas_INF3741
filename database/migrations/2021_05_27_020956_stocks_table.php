@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class StockTable extends Migration
+class StocksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class StockTable extends Migration
      */
     public function up()
     {
-        Schema::create('stock', function (Blueprint $table) {
+        Schema::create('stocks', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('supplie_id');
             $table->unsignedBigInteger('product_id');
@@ -30,6 +30,6 @@ class StockTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('stock');
+        Schema::dropIfExists('stocks');
     }
 }
