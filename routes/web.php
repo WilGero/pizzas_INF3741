@@ -6,6 +6,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\SuppliesController;
+use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\OrdersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,9 +26,12 @@ Route::get('/', function () {
 });
 
 Route::middleware(['prefix', 'admin'])->group(function () {
-        
+
 });
 Route::resource('users',UsersController::class);
+Route::resource('supplies',SuppliesController::class);
+Route::resource('products',ProductsController::class);
+Route::resource('orders',OrdersController::class);
 
 Route::resource('carrousels',CarrouselController::class)->names('carrousels');
 // Guardar foto para carrucel

@@ -31,7 +31,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Insumos</h5>
                                     <p class="card-text">Ver y modificar los insumos disponibles</p>
-                                    <a href="#" class="btn btn-primary">Ingresar</a>
+                                    <a href="{{ route('supplies.index') }}" class="btn btn-primary">Ingresar</a>
                                 </div>
                             </div>
                         </div>
