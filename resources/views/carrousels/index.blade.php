@@ -13,7 +13,7 @@
 <div class="card">
 
     <div class="card-header">
-        <a class="btn btn-success" href="{{route('carrousels.create')}}"><i class="fas fa-fw fa-plus"></i> Nuevo</a>
+        <a class="btn btn-success" href="{{route('carrousels.create')}}"><i class="fa fa-fw fa-plus"></i> Nuevo</a>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
@@ -39,11 +39,11 @@
                         <div class="carousel-caption text-start">
                             <h1>{{$row->title}}.</h1>
                             <p>{{$row->description}}.</p>
-                            <a class="btn btn-primary btn-sm" href="{{route('carrousels.edit', $row->id)}}"><i class="fas fa-fw fa-edit"></i>Editar</a>
+                            <a class="btn btn-primary btn-sm" href="{{route('carrousels.edit', $row->id)}}"><i class="fa fa-fw fa-edit"></i>Editar</a>
                             <form action="{{route('carrousels.destroy', $row->id)}}" method="post">
                                 @csrf
                                 @method('delete')
-                                <button type="submit" onclick="return confirm('¿Seguro que quiere eliminar este registro?')" class="btn btn-danger btn-sm"><i class="fas fa-fw fa-trash"></i>Eliminar</button>
+                                <button type="submit" onclick="return confirm('¿Seguro que quiere eliminar este registro?')" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i>Eliminar</button>
                             </form>
                         </div>
                     </div>
