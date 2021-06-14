@@ -5,6 +5,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\UsersController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +21,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::middleware(['prefix', 'admin'])->group(function () {
+        
+});
+Route::resource('users',UsersController::class);
 
 Route::resource('carrousels',CarrouselController::class)->names('carrousels');
 // Guardar foto para carrucel

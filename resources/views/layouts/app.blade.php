@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Pizzas Andrew's</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -27,8 +27,8 @@
     <div id="app">
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
-            <a class="navbar-brand me-2 mb-1 d-flex align-items-center" href="{{ url('/moders') }}">
-                <img src="{{asset('vendor/adminlte/dist/img/AdminLTELogo.png')}}" height="30" alt="" loading="lazy" style="margin-top: 2px;" />
+            <a class="navbar-brand me-2 mb-1 d-flex align-items-center" href="#">
+                <img src="https://images.vexels.com/media/users/3/220557/isolated/lists/d3cfb5b76c216ee1039d4c77883b000b-pizza-pepperoni-oliva-italiano-plano.png" height="30" alt="" loading="lazy" style="margin-top: 2px;" />
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -41,10 +41,10 @@
                 @if (Route::has('login'))
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{ url('/moders') }}">Inicio <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/">Inicio <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="{{ route('login') }}">Inciar Sesión</a>
+                        <a class="nav-link" aria-current="page" href="{{ route('login') }}">Iniciar Sesión</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="{{ route('register') }}">Registrarse</a>
@@ -141,7 +141,7 @@
         <!-- FOOTER -->
         <footer class="container">
             <br />
-            <p>&copy; 2021 Institución Policial. &middot; <a href="#">Términos</a></p>
+            <p>&copy; 2021 Pizzas Andrew's. &middot; <a href="#">Términos</a></p>
         </footer>
     </main>
     </div>
