@@ -3,8 +3,13 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <a href="" class="btn btn-success">Registrar nuevo usuario</a>
+        <div class="col-md-10">
+
+            <div class="btn-group">
+                <a href="#" class="btn btn-success">Registrar nuevo usuario</a>
+                <a href="{{ route('home') }}" class="btn btn-success">Volver a menu</a>
+            </div>
+
             <div class="card">
                 <div class="card-header">{{ __('Usuarios') }}</div>
             
@@ -29,7 +34,7 @@
                             <td scope="col">{{ $user->email }}</td>
                             <td scope="col">{{ $user->role }}</td>
                             <td scope="col">{{ $user->type }}</td>
-                            <td scope="col"><a href="" class="btn btn-danger"></a> <a href="" class="btn btn-warning"></a></td>
+                            <td scope="col"><a href="" class="btn btn-danger">Eliminar</a> <a href="" class="btn btn-warning">Cambiar rol</a></td>
                         </tr>
                         @endforeach
                     </tbody>

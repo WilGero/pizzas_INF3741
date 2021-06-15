@@ -4,7 +4,12 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <a href="" class="btn btn-success">Registrar nuevo insumo</a>
+
+            <div class="btn-group">
+                <a href="#" class="btn btn-success">Registrar nuevo insumo</a>
+                <a href="{{ route('home') }}" class="btn btn-success">Volver a menu</a>
+            </div>
+           
             <div class="card">
                 <div class="card-header">{{ __('Insumos') }}</div>
             
@@ -25,7 +30,7 @@
                             <td scope="col">{{ $supplie->name }}</td>
                             <td scope="col">{{ $supplie->price }}</td>
                             <td scope="col">{{ $supplie->description }}</td>
-                            <td scope="col"><a href="" class="btn btn-danger"></a> <a href="" class="btn btn-warning"></a></td>
+                            <td scope="col"><a href="" class="btn btn-danger">Eliminar</a> <a href="" class="btn btn-warning">Cambiar cantidad</a></td>
                         </tr>
                         @endforeach
                     </tbody>
@@ -33,6 +38,7 @@
                 {!! $supplies->render() !!}
 
             </div>
+            
         </div>
     </div>
 </div>

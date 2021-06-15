@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">{{ __('Funciones') }}</div>
 
@@ -15,7 +15,7 @@
                     @endif
 
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <div class="card">
                                 <img src="..." class="card-img-top" alt="...">
                                 <div class="card-body">
@@ -25,7 +25,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <div class="card">
                                 <img src="..." class="card-img-top" alt="...">
                                 <div class="card-body">
@@ -35,10 +35,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-sm-6">
+                  
+                        <div class="col-sm-4">
                             <div class="card">
                                 <img src="..." class="card-img-top" alt="...">
                                 <div class="card-body">
@@ -48,7 +46,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <div class="card">
                                 <img src="..." class="card-img-top" alt="...">
                                 <div class="card-body">
@@ -58,10 +56,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-sm-6">
+                
+                        <div class="col-sm-4">
                             <div class="card">
                                 <img src="..." class="card-img-top" alt="...">
                                 <div class="card-body">
@@ -71,7 +67,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <div class="card">
                                 <img src="..." class="card-img-top" alt="...">
                                 <div class="card-body">
