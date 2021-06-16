@@ -1,17 +1,11 @@
-@extends('layouts.app')
+@extends('adminlte::page')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-10">
-
-            <div class="btn-group">
-                <a href="#" class="btn btn-success">Registrar nuevo usuario</a>
-                <a href="{{ route('home') }}" class="btn btn-success">Volver a menu</a>
-            </div>
-
+        
             <div class="card">
-                <div class="card-header">{{ __('Usuarios') }}</div>
+                <div class="btn btn-success">{{ __('Usuarios') }}</div>
             
                 <table class="table">
                     <thead>
@@ -42,7 +36,7 @@
                 {!! $users->render() !!}
 
             </div>
-        </div>
+        
     </div>
 </div>
 @endsection
