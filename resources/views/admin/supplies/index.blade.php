@@ -1,11 +1,12 @@
 @extends('adminlte::page')
+@section('title', 'Pizzas Andrews')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-    
+        <div class="col-md-7">
             <div class="card">
-                <div class="btn btn-success">{{ __('Insumos') }}</div>
+                <div class="card-header">{{ __('Insumos') }}</div>
             
                 <table class="table">
                     <thead>
@@ -29,10 +30,9 @@
                         @endforeach
                     </tbody>
                 </table>
-                {!! $supplies->render() !!}
-
+                {{ $supplies->links() }}
             </div>
-            
+        </div> 
     </div>
 </div>
 @endsection

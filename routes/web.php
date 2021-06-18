@@ -29,6 +29,10 @@ Route::middleware(['prefix', 'admin'])->group(function () {
 
 });
 Route::resource('users',UsersController::class);
+Route::get('users/{id}/destroy', [UsersController::class, 'destroy'])->name('users.destroy');
+Route::get('users/{id}/destroy', [UsersController::class, 'destroy'])->name('users.destroy');
+Route::get('users/{id}/update', [UsersController::class, 'update'])->name('users.update');
+
 Route::resource('supplies',SuppliesController::class);
 Route::resource('products',ProductsController::class);
 Route::resource('orders',OrdersController::class);

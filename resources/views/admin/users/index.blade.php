@@ -1,42 +1,52 @@
 @extends('adminlte::page')
+@section('title', 'Pizzas Andrews')
+@include('flash::message')
 
 @section('content')
-<div class="container">
+    
     <div class="row justify-content-center">
-        
-            <div class="card">
-                <div class="btn btn-success">{{ __('Usuarios') }}</div>
-            
+        <p><a href="{{ route('users.create') }}" class="btn btn-primary">Registrar nuevo usuario</a></p>
+    </div>
+    <div class="container">        
+        <div class="card">
+            <div class="card-header">{{ __('Usuarios') }}</div>
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">Id</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Apellido</th>
-                            <th scope="col">Correo</th>
-                            <th scope="col">Rol</th>
-                            <th scope="col">Tipo</th>
-                            <th scope="col">Acción</th>
+                            <th>Id</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Correo</th>
+                            <th>Rol</th>
+                            <th>Tipo</th>
+                            <th>Acción</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($users as $user)
                         <tr>
-                            <td scope="col">{{ $user->id }}</td>
-                            <td scope="col">{{ $user->name }}</td>
-                            <td scope="col">{{ $user->surname }}</td>
-                            <td scope="col">{{ $user->email }}</td>
-                            <td scope="col">{{ $user->role }}</td>
-                            <td scope="col">{{ $user->type }}</td>
-                            <td scope="col"><a href="" class="btn btn-danger">Eliminar</a> <a href="" class="btn btn-warning">Cambiar rol</a></td>
+                            <td>{{ $user->id }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->surname }}</td>
+                            <td>{{ $user->email }}</td>
+                            <td>{{ $user->role }}</td>
+                            <td>
+                                @if($user->type == "admin")
+                                    <a class="btn btn-success">{{ $user->type }}</a>
+                                @else
+                                    <a class="btn btn-primary">{{ $user->type }}</a>
+                                @endif
+                            </td>
+                            <td>
+                                <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning">Editar</a>
+                                <a href="{{ route('users.destroy', $user->id) }}" onclick="return confirm('¿Seguro que deseas eliminarlo?')" class="btn btn-danger">Eliminar</a>
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
-                {!! $users->render() !!}
-
-            </div>
-        
+                
+        </div>
     </div>
-</div>
+
 @endsection
