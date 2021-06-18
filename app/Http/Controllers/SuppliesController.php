@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Supplie;
+use Laracast\Flash\Flash;
 
 class SuppliesController extends Controller
 {
@@ -15,7 +16,7 @@ class SuppliesController extends Controller
      */
     public function index()
     {
-        $supplies = Supplie::orderBy('id','ASC')->paginate(5);
+        $supplies = Supplie::orderBy('id','desc')->paginate(5);
         return view('admin.supplies.index')->with('supplies', $supplies);
     }
 
@@ -26,7 +27,7 @@ class SuppliesController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.supplies.create');
     }
 
     /**
@@ -37,7 +38,15 @@ class SuppliesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $supplie = new Supplie($request->all());
+        Supplie::create([
+            'name' => $supplie['name'],
+            'price' => $supplie['price'],
+            'description' => $supplie['description'],
+        ]);
+        flash('El insumo ' . $supplie->name . ' a sido registrado de forma exitosa!')->success();
+        $supplies = Supplie::orderBy('id','desc')->paginate(100);
+        return view('admin.supplies.index')->with('supplies', $supplies);
     }
 
     /**
@@ -59,7 +68,8 @@ class SuppliesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $supplie = Supplie::find($id);
+        return view('admin.supplies.edit')->with('supplie', $supplie);
     }
 
     /**
@@ -71,7 +81,14 @@ class SuppliesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $supplie = Supplie::find($id);
+        $supplie->name = $request->name;
+        $supplie->price = $request->price;
+        $supplie->description = $request->description;
+        $supplie->save();
+        flash('El insumo ' . $supplie->name . ' a sido editado de forma exitosa!')->success();
+        $supplies = Supplie::orderBy('id','desc')->paginate(100);
+        return view('admin.supplies.index')->with('supplies', $supplies);
     }
 
     /**
@@ -82,6 +99,10 @@ class SuppliesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $supplie = Supplie::find($id);
+        $supplie->delete();
+        flash('El insumo ' . $supplie->name . ' a sido borrado de forma exitosa!')->success();
+        $supplies = Supplie::orderBy('id','desc')->paginate(100);
+        return view('admin.supplies.index')->with('supplies', $supplies);
     }
 }

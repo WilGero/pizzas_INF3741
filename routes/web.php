@@ -30,12 +30,17 @@ Route::middleware(['prefix', 'admin'])->group(function () {
 });
 Route::resource('users',UsersController::class);
 Route::get('users/{id}/destroy', [UsersController::class, 'destroy'])->name('users.destroy');
-Route::get('users/{id}/destroy', [UsersController::class, 'destroy'])->name('users.destroy');
 Route::get('users/{id}/update', [UsersController::class, 'update'])->name('users.update');
 
+//Route::resource('customers',SuppliesController::class);
+//Route::resource('types',SuppliesController::class);
 Route::resource('supplies',SuppliesController::class);
-Route::resource('products',ProductsController::class);
-Route::resource('orders',OrdersController::class);
+Route::get('supplies/{id}/destroy', [SuppliesController::class, 'destroy'])->name('supplies.destroy');
+Route::get('supplies/{id}/update', [SuppliesController::class, 'update'])->name('supplies.update');
+//Route::resource('products',ProductsController::class);
+//Route::resource('stocks',SuppliesController::class);
+//Route::resource('orders',OrdersController::class);
+
 
 Route::resource('carrousels',CarrouselController::class)->names('carrousels');
 // Guardar foto para carrucel

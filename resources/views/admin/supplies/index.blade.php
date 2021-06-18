@@ -1,38 +1,42 @@
 @extends('adminlte::page')
 @section('title', 'Pizzas Andrews')
+@include('flash::message')
 
 @section('content')
+
 <div class="container">
+    
     <div class="row justify-content-center">
-        <div class="col-md-7">
-            <div class="card">
-                <div class="card-header">{{ __('Insumos') }}</div>
-            
+        <p><a href="{{ route('supplies.create') }}" class="btn btn-primary">Registrar nuevo insumo</a></p>
+    </div>
+        <div class="card">
+            <div class="card-header">{{ __('Insumos') }}</div>         
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">Id</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Precio</th>
-                            <th scope="col">Descripción</th>
-                            <th scope="col">Acción</th>
+                            <th>Id</th>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th>Descripción</th>
+                            <th>Acción</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($supplies as $supplie)
                         <tr>
-                            <td scope="col">{{ $supplie->id }}</td>
-                            <td scope="col">{{ $supplie->name }}</td>
-                            <td scope="col">{{ $supplie->price }}</td>
-                            <td scope="col">{{ $supplie->description }}</td>
-                            <td scope="col"><a href="" class="btn btn-danger">Eliminar</a> <a href="" class="btn btn-warning">Cambiar cantidad</a></td>
+                            <td>{{ $supplie->id }}</td>
+                            <td>{{ $supplie->name }}</td>
+                            <td>{{ $supplie->price }}</td>
+                            <td>{{ $supplie->description }}</td>
+                            <td>
+                                <a href="{{ route('supplies.edit', $supplie->id) }}" class="btn btn-warning">Editar</a>
+                                <a href="{{ route('supplies.destroy', $supplie->id) }}" onclick="return confirm('¿Seguro que deseas eliminarlo?')" class="btn btn-danger">Eliminar</a> 
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
-                {{ $supplies->links() }}
-            </div>
-        </div> 
-    </div>
+        </div>    
 </div>
+
 @endsection
