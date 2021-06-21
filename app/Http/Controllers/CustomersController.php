@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Customer;
 use Illuminate\Http\Request;
+use Laracast\Flash\Flash;
 
 class CustomersController extends Controller
 {
@@ -13,7 +15,8 @@ class CustomersController extends Controller
      */
     public function index()
     {
-        //
+        $customers = Customer::orderBy('id','desc')->paginate(100);
+        return view('admin.customers.index')->with('customers', $customers);
     }
 
     /**
@@ -23,7 +26,7 @@ class CustomersController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.customers.create');
     }
 
     /**
@@ -34,7 +37,18 @@ class CustomersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $customer = new Customer($request->all());
+        Customer::create([
+            'name' => $customer['name'],
+            'surname' => $customer['surname'],
+            'email' => $customer['email'],
+            'phone' => $customer['phone'],
+            'direction' => $customer['direction'],
+            
+        ]);
+        flash('El cliente ' . $customer->name . ' a sido creado de forma exitosa!')->success();
+        $customers = Customer::orderBy('id','desc')->paginate(100);
+        return view('admin.customers.index')->with('customers', $customers);
     }
 
     /**
@@ -56,7 +70,8 @@ class CustomersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $customer = Customer::find($id);
+        return view('admin.customers.edit')->with('customer', $customer);
     }
 
     /**
@@ -68,7 +83,16 @@ class CustomersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $customer = Customer::find($id);
+        $customer->name = $request->name;
+        $customer->surname = $request->surname;
+        $customer->email = $request->email;
+        $customer->phone = $request->phone;
+        $customer->direction = $request->direction;
+        $customer->save();
+        flash('El cliente ' . $customer->name . ' a sido editado de forma exitosa!')->success();
+        $customers = Customer::orderBy('id','desc')->paginate(100);
+        return view('admin.customers.index')->with('customers', $customers);
     }
 
     /**
@@ -79,6 +103,10 @@ class CustomersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $customer = Customer::find($id);
+        $customer->delete();
+        flash('El cliente ' . $customer->name . ' a sido borrado de forma exitosa!')->success();
+        $customers = Customer::orderBy('id','desc')->paginate(100);
+        return view('admin.customers.index')->with('customers', $customers);
     }
 }

@@ -314,9 +314,14 @@ return [
             'url'        => 'supplies',
         ],
         [
-            'text'       => 'información',
+            'text'       => 'Tipos',
             'icon_color' => 'cyan',
-            'url'        => '#',
+            'url'        => 'types',
+        ],
+        [
+            'text'       => 'Clientes',
+            'icon_color' => 'green',
+            'url'        => 'customers',
         ],
     ],
 

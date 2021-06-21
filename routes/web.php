@@ -9,6 +9,9 @@ use App\Http\Controllers\UsersController;
 use App\Http\Controllers\SuppliesController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\OrdersController;
+use App\Http\Controllers\TypesController;
+use App\Http\Controllers\CustomersController;
+use App\Http\Controllers\StocksController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,13 +35,19 @@ Route::resource('users',UsersController::class);
 Route::get('users/{id}/destroy', [UsersController::class, 'destroy'])->name('users.destroy');
 Route::get('users/{id}/update', [UsersController::class, 'update'])->name('users.update');
 
-//Route::resource('customers',SuppliesController::class);
-//Route::resource('types',SuppliesController::class);
+Route::resource('customers',CustomersController::class);
+Route::get('customers/{id}/destroy', [CustomersController::class, 'destroy'])->name('customers.destroy');
+Route::get('customers/{id}/update', [CustomersController::class, 'update'])->name('customers.update');
+
+Route::resource('types',TypesController::class);
+Route::get('types/{id}/destroy', [TypesController::class, 'destroy'])->name('types.destroy');
+Route::get('types/{id}/update', [TypesController::class, 'update'])->name('types.update');
+
 Route::resource('supplies',SuppliesController::class);
 Route::get('supplies/{id}/destroy', [SuppliesController::class, 'destroy'])->name('supplies.destroy');
 Route::get('supplies/{id}/update', [SuppliesController::class, 'update'])->name('supplies.update');
 //Route::resource('products',ProductsController::class);
-//Route::resource('stocks',SuppliesController::class);
+//Route::resource('stocks',StocksController::class);
 //Route::resource('orders',OrdersController::class);
 
 

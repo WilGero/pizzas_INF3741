@@ -16,7 +16,7 @@ class SuppliesController extends Controller
      */
     public function index()
     {
-        $supplies = Supplie::orderBy('id','desc')->paginate(5);
+        $supplies = Supplie::orderBy('id','desc')->paginate(100);
         return view('admin.supplies.index')->with('supplies', $supplies);
     }
 
