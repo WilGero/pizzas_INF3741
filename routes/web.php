@@ -57,9 +57,12 @@ Route::post('caruselimage', [CarrouselController::class, 'caruselimage']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 //Perfil
+Route::resource('profile',ProfileController::class);
 Route::get('perfil', [ProfileController::class, 'index'])->name('perfil');
 Route::get('password', [ProfileController::class, 'index'])->name('password');
+
 //image profile
 Route::post('profileimage', [ProfileController::class, 'profileimage']);
 Route::put('update/{id}', [ProfileController::class, 'update'])->name('user.update');

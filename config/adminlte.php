@@ -256,12 +256,12 @@ return [
         ['header' => 'CONFIGURAR CUENTA'],
         [
             'text' => 'Perfil',
-            'url'  => 'admin/settings',
+            'url'  => 'profile',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
             'text' => 'Cambiar Contraseña',
-            'url'  => 'admin/settings',
+            'url'  => 'changepassword',
             'icon' => 'fas fa-fw fa-lock',
         ],
         [

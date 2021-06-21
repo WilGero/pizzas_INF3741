@@ -9,7 +9,7 @@ class ProfileController extends Controller
 {
     public function index()
     {
-        $user = User::orderBy('id', 'desc')->get();
-        return view('profile.profile',compact('user'));
+        $user = auth()->user();
+        return view('profile.profile')->with('user', $user);
     }
 }
