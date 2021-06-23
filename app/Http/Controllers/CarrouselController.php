@@ -23,16 +23,10 @@ class CarrouselController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'urlimage' => 'required',
-            'description' => 'required'
-        ]);
         $carrusel = Carrousel::create([
             'title' => $request->title,
-            'urlimage' => $request->urlimage,
             'description' => $request->description,
-
+            'urlimage' => $request->urlimage,
         ]);
         return redirect()->route('carrousels.index')->with('info', 'Carrusel creado exitosamente');
     }

@@ -3,7 +3,7 @@
 @include('flash::message')
 
 @section('content')
-
+<div class="form-group row"><div class="col-sm-8"></div></div>
 <div class="container">
     
     <div class="row justify-content-center">

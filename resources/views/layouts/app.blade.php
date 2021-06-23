@@ -28,7 +28,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
             <a class="navbar-brand me-2 mb-1 d-flex align-items-center" href="#">
-                <img src="https://images.vexels.com/media/users/3/220557/isolated/lists/d3cfb5b76c216ee1039d4c77883b000b-pizza-pepperoni-oliva-italiano-plano.png" height="30" alt="" loading="lazy" style="margin-top: 2px;" />
+                <img src="images/logo/pizza.png" height="30" alt="" loading="lazy" style="margin-top: 2px;" />
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>

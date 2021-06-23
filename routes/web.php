@@ -13,6 +13,8 @@ use App\Http\Controllers\TypesController;
 use App\Http\Controllers\CustomersController;
 use App\Http\Controllers\StocksController;
 
+use App\Models\Carrousel;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,7 +27,8 @@ use App\Http\Controllers\StocksController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $carruseles = Carrousel::orderBy('id', 'desc')->get();
+    return view('welcome',compact('carruseles'));
 });
 
 Route::middleware(['prefix', 'admin'])->group(function () {
@@ -51,7 +54,7 @@ Route::get('supplies/{id}/update', [SuppliesController::class, 'update'])->name(
 //Route::resource('orders',OrdersController::class);
 
 
-Route::resource('carrousels',CarrouselController::class)->names('carrousels');
+Route::resource('carrousels',CarrouselController::class);
 // Guardar foto para carrucel
 Route::post('caruselimage', [CarrouselController::class, 'caruselimage']);
 Auth::routes();
@@ -60,6 +63,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //Perfil
 Route::resource('profile',ProfileController::class);
+Route::get('profile/{id}/update', [ProfileController::class, 'update'])->name('profile.update');
 Route::get('perfil', [ProfileController::class, 'index'])->name('perfil');
 Route::get('password', [ProfileController::class, 'index'])->name('password');
 

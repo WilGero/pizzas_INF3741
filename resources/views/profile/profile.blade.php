@@ -1,5 +1,5 @@
-
 @extends('adminlte::page')
+@section('title', 'Pizzas Andrews')
 @section('navbar')
   <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
     <li class="nav-item">
@@ -83,13 +83,12 @@
           <div class="tab-pane" id="settings">
             <div class="row justify-content-center">
             <div class="col-md-6">
-              <form class="form-horizontal" action="" method="POST">
+              <form class="form-horizontal" action="{{ route('profile.update', $user->id) }}" method="PUT">
                 @csrf
-                @method('PUT')
 
                 <div class="text-center" title="Foto de la persona" data-toggle="tooltip" data-html="true">                  
                   <img id="idimag" class="profile-user-img img-fluid rounded-circle" src="https://img1.freepng.es/20180623/vr/kisspng-computer-icons-avatar-social-media-blog-font-aweso-avatar-icon-5b2e99c3c1e473.3568135015297806757942.jpg" alt="User profile picture">
-                  <div class="file-field">
+                  <!--<div class="file-field">
                     <div class="btn btn-primary btn-sm float-left">
                       <span>Cambiar foto</span>
                       <input type="file" name="before_crop_image" id="before_crop_image" accept="image/*" />
@@ -97,13 +96,10 @@
                     <div class="file-path-wrapper">
                       <input type="text" id="foto" name="foto" class="form-control" value="" placeholder="Foto" required readonly>
                     </div>
-                  </div>
+                  </div>-->
                 </div>
 
-                <div class="form-group row">
-                  <div class="col-sm-8">
-                  </div>
-                </div>
+                <div class="form-group row"><div class="col-sm-8"></div></div>
 
                 <div class="form-group row">
                   <label for="nombres" class="col-sm-4 col-form-label">Nombres</label>
@@ -115,7 +111,7 @@
                 <div class="form-group row">
                   <label for="apellidos" class="col-sm-4 col-form-label">Apellidos</label>
                   <div class="col-sm-8">
-                    <input type="text" name="lastname" class="form-control" value="{{$user->surname}}" placeholder="apellidos" required>
+                    <input type="text" name="surname" class="form-control" value="{{$user->surname}}" placeholder="apellidos" required>
                   </div>
                 </div>
 

@@ -46,7 +46,7 @@ return [
     */
 
     'logo' => '<b>INICIO</b>',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo_img' => 'images/logo/pizza.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -248,7 +248,7 @@ return [
         ],
         [
             'text'        => 'Paginas',
-            'url'         => 'admin/pages',
+            'url'         => '#',
             'icon'        => 'far fa-fw fa-file',
             'label'       => 4,
             'label_color' => 'success',
@@ -261,8 +261,13 @@ return [
         ],
         [
             'text' => 'Cambiar Contraseña',
-            'url'  => 'changepassword',
+            'url'  => '#',
             'icon' => 'fas fa-fw fa-lock',
+        ],
+        [
+            'text' => 'Carrusel',
+            'url'  => 'carrousels',
+            'icon' => 'fas fa-fw fa-wrench',
         ],
         [
             'text'    => 'Multi nivel',

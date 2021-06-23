@@ -1,35 +1,27 @@
 @extends('layouts.app')
 @section('content')
 
-<div class="row justify-content-center">
-<div class="col-md-10">
-
+<div class="container">  
 <div class="card">
+    <!-- /.card-header -->
     <div class="card-body">
-
-        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active" data-bs-interval="2000">
-                        <img src="https://st.depositphotos.com/1175884/5129/i/950/depositphotos_51297589-stock-photo-cola.jpg" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item" data-bs-interval="2000">
-                        <img src="https://guiadeo.com/wp-content/uploads/2017/12/PALACIO-PIZZA-CAFE.jpg" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://revistaelconocedor.com/wp-content/uploads/2015/11/Bolla-Pizza-and-Wine.jpg" class="d-block w-100" alt="...">
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-        <!--
         <div id="demo" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ul class="carousel-indicators">
+                @foreach ($carruseles as $row)
+                <li data-target="#demo" data-slide-to="$row->id" class="{{ $loop->first ? 'active' : '' }}"></li>
+                @endforeach
+            </ul>
+            <!-- The slideshow -->
+            <div class="carousel-inner">
+                @foreach ($carruseles as $row)
+                <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                    <img src="{{ asset ('/images/carrousels/'.$row->urlimage)}}" alt="{{ $row->urlimage }}" width="1100" height="500">
+                    <rect width="100%" height="100%" fill="#777" />
+                </div>
+                @endforeach
+            </div>
+            <!-- Left and right controls -->
             <a class="carousel-control-prev" href="#demo" data-slide="prev">
                 <span class="carousel-control-prev-icon"></span>
             </a>
@@ -37,20 +29,11 @@
                 <span class="carousel-control-next-icon"></span>
             </a>
         </div>
-        -->
     </div>
+    <!-- /.card-body -->
 </div>
-
 </div>
-</div>
-<!-- 
-  ================================================== -->
-
-<div class="container marketing mt-1">
-
-    <!-- START THE FEATURETTES -->
-    
-</div><!-- /.container -->
+<!-- /.card -->
 
 @endsection
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>

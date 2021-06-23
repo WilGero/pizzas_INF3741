@@ -1,14 +1,14 @@
-@extends('layouts.app')
+@extends('adminlte::page')
+@section('title', 'Pizzas Andrews')
 @section('content')
 <div class="card">
-
     <div class="card-body">
-
-        <form class="form-horizontal" action="{{ route('carrousels.store')}}" method="POST">
+        <form class="form-horizontal" action="{{ route('carrousels.store') }}" method="POST">
             @csrf
-            <div class="row bg-light text-dark">
 
+            <div class="row bg-light text-dark">                
                 <div class="col-md-6 mt-2">
+
                     <div class="form-group">
                         <label for="titulo">Título</label>
                         <input class="form-control" placeholder="Ingrese el titulo del carrusel" name="title" type="text" id="title" required onkeyup="this.value = this.value.toUpperCase();">
@@ -16,6 +16,7 @@
                     @error('title')
                     <span class="text-danger">{{$message}}</span>
                     @enderror
+
                     <div class="form-group">
                         <label>Descripción</label>
                         <textarea class="form-control" rows="3" placeholder="Descripcion breve" id="description" name="description" required></textarea>
@@ -23,30 +24,30 @@
                     @error('description')
                     <span class="text-danger">{{$message}}</span>
                     @enderror
-                    <div class="form-group">
+
+                    <!--<div class="form-group">
                         <label for="Imagen">Nombre Imagen</label>
-                        <input class="form-control" placeholder="Nombre de la imagen" name="urlimage" id="urlimage" readonly required>
+                        <input class="form-control" placeholder="Nombre de la imagen" name="urlimage" id="urlimage">
                     </div>
-                    @error('image')
+                    @error('urlimage')
                     <span class="text-danger">{{$message}}</span>
-                    @enderror
+                    @enderror-->
 
                 </div>
+                
                 <div class="col-md-6 mt-2">
                     <div class="card bg-light text-dark">
-
-
                         <div class="card-header bg-light text-dark">
-                            Ajustar imagen
+                            Seleccionar imagen
                         </div>
                         <div class="card-body">
-                            <input type="file" name="before_crop_image" id="before_crop_image" accept="image/*" />
+                            <input type="file" name="urlimage" id="before_crop_image" accept="image/*" />
                             <img id="idimag" class="profile-user-img img-fluid" src="https://images.unsplash.com/photo-1542261777448-23d2a287091c?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTR8fHxlbnwwfHx8&auto=format&fit=crop&w=500&q=60" alt="User profile picture">
                         </div>
-
                     </div>
                 </div>
             </div>
+
             <div class="card bg-dark">
                 <div class="container-fluid h-100 mt-2">
                     <div class="row w-100 align-items-center">
@@ -67,11 +68,9 @@
                     </div>
                 </div>
             </div>
+
         </form>
-
-
     </div>
-
     <!-- /.card-body -->
 </div>
 <!-- /.card -->
@@ -109,11 +108,8 @@
 
 @section('css')
 <!-- <link rel="stylesheet" href="/css/admin_custom.css">  -->
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.css" />
-
 @stop
-
 @section('js')
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.js"></script>
