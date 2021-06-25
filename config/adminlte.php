@@ -319,9 +319,9 @@ return [
             'url'        => 'supplies',
         ],
         [
-            'text'       => 'Tipos',
+            'text'       => 'Productos',
             'icon_color' => 'cyan',
-            'url'        => 'types',
+            'url'        => 'products',
         ],
         [
             'text'       => 'Clientes',

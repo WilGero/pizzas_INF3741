@@ -12,18 +12,14 @@ class Product extends Model
     protected $fillable = [
         'name',
         'price',
-        'type_id'
+        'description'
     ];
-    public function type()
+    public function supplies()
     {
-        return $this->belongsTo('App\Type');
+        return $this->belongsToMany('App\Supplie');
     }
     public function orders()
     {
-        return $this->hasMany('App\Order');
-    }
-    public function stocks()
-    {
-        return $this->hasMany('App\Stock');
+        return $this->belongsToMany('App\Order');
     }
 }

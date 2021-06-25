@@ -109,9 +109,9 @@
                 </div>
 
                 <div class="form-group row">
-                  <label for="apellidos" class="col-sm-4 col-form-label">Apellidos</label>
+                  <label for="correo" class="col-sm-4 col-form-label">Correo eletrónico</label>
                   <div class="col-sm-8">
-                    <input type="text" name="surname" class="form-control" value="{{$user->surname}}" placeholder="apellidos" required>
+                    <input type="text" name="email" class="form-control" value="{{$user->email}}" placeholder="correo" required>
                   </div>
                 </div>
 

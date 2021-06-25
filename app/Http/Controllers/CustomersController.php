@@ -39,9 +39,8 @@ class CustomersController extends Controller
     {
         $customer = new Customer($request->all());
         Customer::create([
+            'ci' => $customer['ci'],
             'name' => $customer['name'],
-            'surname' => $customer['surname'],
-            'email' => $customer['email'],
             'phone' => $customer['phone'],
             'direction' => $customer['direction'],
             
@@ -84,9 +83,8 @@ class CustomersController extends Controller
     public function update(Request $request, $id)
     {
         $customer = Customer::find($id);
+        $customer->ci = $request->ci;
         $customer->name = $request->name;
-        $customer->surname = $request->surname;
-        $customer->email = $request->email;
         $customer->phone = $request->phone;
         $customer->direction = $request->direction;
         $customer->save();

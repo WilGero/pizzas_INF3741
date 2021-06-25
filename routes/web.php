@@ -9,9 +9,7 @@ use App\Http\Controllers\UsersController;
 use App\Http\Controllers\SuppliesController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\OrdersController;
-use App\Http\Controllers\TypesController;
 use App\Http\Controllers\CustomersController;
-use App\Http\Controllers\StocksController;
 
 use App\Models\Carrousel;
 
@@ -42,15 +40,14 @@ Route::resource('customers',CustomersController::class);
 Route::get('customers/{id}/destroy', [CustomersController::class, 'destroy'])->name('customers.destroy');
 Route::get('customers/{id}/update', [CustomersController::class, 'update'])->name('customers.update');
 
-Route::resource('types',TypesController::class);
-Route::get('types/{id}/destroy', [TypesController::class, 'destroy'])->name('types.destroy');
-Route::get('types/{id}/update', [TypesController::class, 'update'])->name('types.update');
-
 Route::resource('supplies',SuppliesController::class);
 Route::get('supplies/{id}/destroy', [SuppliesController::class, 'destroy'])->name('supplies.destroy');
 Route::get('supplies/{id}/update', [SuppliesController::class, 'update'])->name('supplies.update');
-//Route::resource('products',ProductsController::class);
-//Route::resource('stocks',StocksController::class);
+
+Route::resource('products',ProductsController::class);
+Route::get('products/{id}/destroy', [ProductsController::class, 'destroy'])->name('products.destroy');
+Route::get('products/{id}/update', [ProductsController::class, 'update'])->name('products.update');
+
 //Route::resource('orders',OrdersController::class);
 
 

@@ -17,7 +17,7 @@ class ProfileController extends Controller
     {
         $user = User::find($id);
         $user->name = $request->name;
-        $user->surname = $request->surname;
+        $user->email = $request->email;
         $user->save();
         $user = auth()->user();
         return view('profile.profile')->with('user', $user);

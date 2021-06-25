@@ -14,8 +14,8 @@ class Supplie extends Model
         'price',
         'description',
     ];
-    public function stocks()
+    public function products()
     {
-        return $this->hasMany('App\Stock');
+        return $this->belongsToMany('App\Product');
     }
 }

@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Product;
+use Laracast\Flash\Flash;
+
 class ProductsController extends Controller
 {
     /**
@@ -13,7 +16,8 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::orderBy('id','desc')->paginate(100);
+        return view('admin.products.index')->with('products', $products);
     }
 
     /**
@@ -23,7 +27,7 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.products.create');
     }
 
     /**
@@ -34,7 +38,15 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = new Product($request->all());
+        Product::create([
+            'name' => $product['name'],
+            'price' => $product['price'],
+            'description' => $product['description'],
+        ]);
+        flash('El producto ' . $product->name . ' a sido registrado de forma exitosa!')->success();
+        $products = Product::orderBy('id','desc')->paginate(100);
+        return view('admin.products.index')->with('products', $products);
     }
 
     /**
@@ -56,7 +68,8 @@ class ProductsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::find($id);
+        return view('admin.products.edit')->with('product', $product);
     }
 
     /**
@@ -68,7 +81,14 @@ class ProductsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product = Product::find($id);
+        $product->name = $request->name;
+        $product->price = $request->price;
+        $product->description = $request->description;
+        $product->save();
+        flash('El producto ' . $product->name . ' a sido editado de forma exitosa!')->success();
+        $products = Product::orderBy('id','desc')->paginate(100);
+        return view('admin.products.index')->with('products', $products);
     }
 
     /**
@@ -79,6 +99,10 @@ class ProductsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product = Product::find($id);
+        $product->delete();
+        flash('El producto ' . $product->name . ' a sido borrado de forma exitosa!')->success();
+        $products = Product::orderBy('id','desc')->paginate(100);
+        return view('admin.products.index')->with('products', $products);
     }
 }

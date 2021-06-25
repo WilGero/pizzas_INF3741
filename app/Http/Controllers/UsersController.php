@@ -42,12 +42,11 @@ class UsersController extends Controller
         $user = new User($request->all());
         User::create([
             'name' => $user['name'],
-            'surname' => $user['surname'],
             'email' => $user['email'],
             'password' => Hash::make($user['password']),
-            'username' => $user['username'],
-            'role' => 'usuario comun',
+            'role' => 'ninguno',
             'type' => 'member',
+            'photo' => 'ninguna',
         ]);
         flash('El usuario ' . $user->name . ' a sido creado de forma exitosa!')->success();
         $users = User::orderBy('id','desc')->paginate(100);
@@ -88,8 +87,6 @@ class UsersController extends Controller
     {
         $user = User::find($id);
         $user->name = $request->name;
-        $user->surname = $request->surname;
-        $user->username = $request->username;
         $user->email = $request->email;
         $user->role = $request->role;
         $user->type = $request->type;

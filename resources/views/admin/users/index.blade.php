@@ -15,7 +15,6 @@
                         <tr>
                             <th>Id</th>
                             <th>Nombre</th>
-                            <th>Apellido</th>
                             <th>Correo</th>
                             <th>Rol</th>
                             <th>Tipo</th>
@@ -27,11 +26,10 @@
                         <tr>
                             <td>{{ $user->id }}</td>
                             <td>{{ $user->name }}</td>
-                            <td>{{ $user->surname }}</td>
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->role }}</td>
                             <td>
-                                @if($user->type == "admin")
+                                @if($user->type == "administración")
                                     <a class="btn btn-success">{{ $user->type }}</a>
                                 @else
                                     <a class="btn btn-primary">{{ $user->type }}</a>

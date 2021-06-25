@@ -10,8 +10,6 @@ class Order extends Model
     use HasFactory;
     protected $table = "orders";
     protected $fillable = [
-        'amount',
-        'product_id',
         'user_id',
         'customer_id'
     ];
@@ -19,12 +17,12 @@ class Order extends Model
     {
         return $this->belongsTo('App\User');
     }
-    public function product()
-    {
-        return $this->belongsTo('App\Product');
-    }
     public function customer()
     {
         return $this->belongsTo('App\Customer');
+    }
+    public function products()
+    {
+        return $this->belongsToMany('App\Product');
     }
 }

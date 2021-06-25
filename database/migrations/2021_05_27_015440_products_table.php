@@ -17,8 +17,16 @@ class ProductsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('price');
-            $table->unsignedBigInteger('type_id');
-            $table->foreign('type_id')->references('id')->on('types')->onDelete('cascade');
+            $table->string('description');
+            $table->timestamps();
+        });
+        Schema::create('supplie_product', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('supplie_id');
+            $table->unsignedBigInteger('product_id');
+            $table->foreign('supplie_id')->references('id')->on('supplies');
+            $table->foreign('product_id')->references('id')->on('products');
+            $table->string('amount');
             $table->timestamps();
         });
     }

@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Pizzas Andrew's</title>
+    <title>Pizzas Andrews</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -141,7 +141,7 @@
         <!-- FOOTER -->
         <footer class="container">
             <br />
-            <p>&copy; 2021 Pizzas Andrew's. &middot; <a href="#">Términos</a></p>
+            <p>&copy; 2021 Pizzas Andrews. &middot; <a href="#">Términos</a></p>
         </footer>
     </main>
     </div>

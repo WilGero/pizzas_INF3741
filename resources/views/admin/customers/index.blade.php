@@ -14,9 +14,8 @@
                     <thead>
                         <tr>
                             <th>Id</th>
+                            <th>CI</th>
                             <th>Nombre</th>
-                            <th>Apellido</th>
-                            <th>Correo</th>
                             <th>Telefono</th>
                             <th>Direccion</th>
                             <th>Acción</th>
@@ -26,9 +25,8 @@
                         @foreach($customers as $customer)
                         <tr>
                             <td>{{ $customer->id }}</td>
+                            <td>{{ $customer->ci }}</td>
                             <td>{{ $customer->name }}</td>
-                            <td>{{ $customer->surname }}</td>
-                            <td>{{ $customer->email }}</td>
                             <td>{{ $customer->phone }}</td>
                             <td>{{ $customer->direction }}</td>
                             <td>
