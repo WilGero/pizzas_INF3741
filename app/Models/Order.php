@@ -15,14 +15,14 @@ class Order extends Model
     ];
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\Models\User');
     }
     public function customer()
     {
-        return $this->belongsTo('App\Customer');
+        return $this->belongsTo('App\Models\Customer');
     }
     public function products()
     {
-        return $this->belongsToMany('App\Product');
+        return $this->belongsToMany(Product::class)->withPivot('amount');
     }
 }

@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
      */
     
     public function run()
-    {   /**
+    {   
         $user=User::create([
             'name'=>'admin',
             'email'=>'admin@gmail.com',
@@ -102,7 +102,7 @@ class DatabaseSeeder extends Seeder
             'description'=>'empanada de queso',
         ]);
 
-         */
+         
 
         $customer=Customer::create([
             'ci'=>'2624096',

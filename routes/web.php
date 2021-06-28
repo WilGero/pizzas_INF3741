@@ -48,8 +48,9 @@ Route::resource('products',ProductsController::class);
 Route::get('products/{id}/destroy', [ProductsController::class, 'destroy'])->name('products.destroy');
 Route::get('products/{id}/update', [ProductsController::class, 'update'])->name('products.update');
 
-//Route::resource('orders',OrdersController::class);
-
+Route::resource('orders',OrdersController::class);
+Route::get('orders/{id}/destroy', [OrdersController::class, 'destroy'])->name('orders.destroy');
+Route::get('orders/{id}/update', [OrdersController::class, 'update'])->name('orders.update');
 
 Route::resource('carrousels',CarrouselController::class);
 // Guardar foto para carrucel

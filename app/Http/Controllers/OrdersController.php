@@ -4,6 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\User;
+use App\Models\Customer;
+use App\Models\Order;
+use App\Models\Product;
+use Laracast\Flash\Flash;
+
 class OrdersController extends Controller
 {
     /**
@@ -12,8 +18,14 @@ class OrdersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {   
+        $orders = Order::orderBy('id','desc')->paginate(100);
+        $orders->each(function($orders){
+            $orders->user;
+            $orders->customer;
+        });
+        //dd($orders);
+        return view('admin.orders.index')->with('orders', $orders);
     }
 
     /**
@@ -23,7 +35,11 @@ class OrdersController extends Controller
      */
     public function create()
     {
-        //
+        $customers = Customer::orderBy('ci', 'asc')->paginate();
+        $products = Product::orderBy('id', 'asc')->paginate();
+        return view('admin.orders.create')
+            ->with('customers', $customers)
+            ->with('products', $products);
     }
 
     /**
@@ -34,7 +50,21 @@ class OrdersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $order = new Order($request->all());
+        $user = auth()->user();
+        $order->user_id = $user->id;
+        $order->save();
+        $order->products()->sync( [
+            1 => ['amount' => $request->pizza],
+            2 => ['amount' => $request->refresco_natural],
+            3 => ['amount' => $request->refresco_soda],
+            4 => ['amount' => $request->empanada],
+            5 => ['amount' => $request->cafe],
+            6 => ['amount' => $request->te]
+        ], false);
+        flash('El pedido a sido creado de forma exitosa!')->success();
+        $orders = Order::orderBy('id','desc')->paginate(100);
+        return view('admin.orders.index')->with('orders', $orders); 
     }
 
     /**
@@ -56,7 +86,10 @@ class OrdersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $order = Order::find($id);
+        $order->customer;
+        return view('admin.orders.edit')
+            ->with('order', $order);
     }
 
     /**

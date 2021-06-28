@@ -16,10 +16,10 @@ class Product extends Model
     ];
     public function supplies()
     {
-        return $this->belongsToMany('App\Supplie');
+        return $this->belongsToMany('App\Models\Supplie');
     }
     public function orders()
     {
-        return $this->belongsToMany('App\Order');
+    return $this->belongsToMany('App\Models\Order');
     }
 }

@@ -4,6 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\User;
+use App\Models\Customer;
+use App\Models\Order;
+use App\Models\Product;
+use Laracast\Flash\Flash;
+
 class HomeController extends Controller
 {
     /**
@@ -22,7 +28,12 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {
-        return view('home');
+    {   
+        $orders = Order::orderBy('id','desc')->paginate(100);
+        $orders->each(function($orders){
+            $orders->user;
+            $orders->customer;
+        });
+        return view('admin.orders.index')->with('orders', $orders);
     }
 }

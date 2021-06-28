@@ -20,7 +20,7 @@ class ProductsTable extends Migration
             $table->string('description');
             $table->timestamps();
         });
-        Schema::create('supplie_product', function (Blueprint $table) {
+        Schema::create('product_supplie', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('supplie_id');
             $table->unsignedBigInteger('product_id');
