@@ -34,7 +34,7 @@
 
                         <div class="form-group row">
                             <label for="amount" class="col-md-4 col-form-label text-md-right">{{ $product->name }}</label>
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 <input id="amount" type="text" class="form-control @error('amount') is-invalid @enderror" name="{{ $product->name }}" value="0" required autocomplete="amount" autofocus>
                                 @error('amount')
                                     <span class="invalid-feedback" role="alert">

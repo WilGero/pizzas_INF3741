@@ -32,7 +32,7 @@
                                 @if($user->type == "administración")
                                     <a class="btn btn-success">{{ $user->type }}</a>
                                 @else
-                                    <a class="btn btn-primary">{{ $user->type }}</a>
+                                    <a class="btn btn-info">{{ $user->type }}</a>
                                 @endif
                             </td>
                             <td>
