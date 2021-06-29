@@ -17,7 +17,7 @@
                             <th>Id</th>
                             <th>Usuario</th>
                             <th>Cliente</th>
-                            <th>Total</th>
+                            <th>Precio Total</th>
                             <th>Acción</th>
                         </tr>
                     </thead>

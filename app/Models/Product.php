@@ -16,10 +16,10 @@ class Product extends Model
     ];
     public function supplies()
     {
-        return $this->belongsToMany('App\Models\Supplie');
+        return $this->belongsToMany(Supplie::class)->withPivot('amount');
     }
     public function orders()
     {
-    return $this->belongsToMany('App\Models\Order');
+    return $this->belongsToMany(Order::class)->withPivot('amount');
     }
 }

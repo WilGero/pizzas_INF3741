@@ -16,6 +16,6 @@ class Supplie extends Model
     ];
     public function products()
     {
-        return $this->belongsToMany('App\Models\Product');
+        return $this->belongsToMany(Product::class)->withPivot('amount');
     }
 }

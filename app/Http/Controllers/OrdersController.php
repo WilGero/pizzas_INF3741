@@ -49,20 +49,16 @@ class OrdersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
         $order = new Order($request->all());
         $user = auth()->user();
         $order->user_id = $user->id;
         $order->save();
-
-        $order->products()->sync( [
-            1 => ['amount' => $request->p1],
-            2 => ['amount' => $request->p2],
-            3 => ['amount' => $request->p3],
-            4 => ['amount' => $request->p4],
-            5 => ['amount' => $request->p5],
-            6 => ['amount' => $request->p6]
-        ], false);
+        $products = Product::orderBy('id', 'asc')->paginate();
+        foreach($products as $product){
+            $nombre = $product->name;
+            $order->products()->sync( [$product->id => ['amount' => $request->$nombre]], false);
+        };
         flash('El pedido a sido creado de forma exitosa!')->success();
         $orders = Order::orderBy('id','desc')->paginate(100);
         return view('admin.orders.index')->with('orders', $orders); 

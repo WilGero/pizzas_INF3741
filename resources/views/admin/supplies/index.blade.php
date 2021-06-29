@@ -16,18 +16,42 @@
                         <tr>
                             <th>Id</th>
                             <th>Nombre</th>
-                            <th>Precio</th>
+                            <th>Costo</th>
                             <th>Descripción</th>
+                            <th>Cantidad</th>
+                            <th>Costo Total</th>
                             <th>Acción</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($supplies as $supplie)
                         <tr>
+                            <div hidden>
+                                @php
+                                $cantidad = 0
+                                @endphp
+                                @foreach($supplie->products as $product)
+                                    @foreach($product->orders as $order)
+                                        {{ $cantidad = $cantidad + $order->pivot->amount}}
+                                    @endforeach
+                                @endforeach
+                            </div>
+                            <div hidden>
+                                @php
+                                $total = 0
+                                @endphp
+                                @foreach($supplie->products as $product)
+                                    @foreach($product->orders as $order)
+                                        {{ $total = $total + $order->pivot->amount * $supplie->price }}
+                                    @endforeach
+                                @endforeach
+                            </div>
                             <td>{{ $supplie->id }}</td>
                             <td>{{ $supplie->name }}</td>
-                            <td>{{ $supplie->price }}</td>
+                            <td>{{ $supplie->price }} Bs</td>
                             <td>{{ $supplie->description }}</td>
+                            <td>{{ $cantidad }}</td>
+                            <td>{{ $total }} Bs</td>
                             <td>
                                 <a href="{{ route('supplies.edit', $supplie->id) }}" class="btn btn-warning">Editar</a>
                                 <a href="{{ route('supplies.destroy', $supplie->id) }}" onclick="return confirm('¿Seguro que deseas eliminarlo?')" class="btn btn-danger">Eliminar</a> 
