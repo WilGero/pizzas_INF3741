@@ -54,13 +54,14 @@ class OrdersController extends Controller
         $user = auth()->user();
         $order->user_id = $user->id;
         $order->save();
+
         $order->products()->sync( [
-            1 => ['amount' => $request->pizza],
-            2 => ['amount' => $request->refresco_natural],
-            3 => ['amount' => $request->refresco_soda],
-            4 => ['amount' => $request->empanada],
-            5 => ['amount' => $request->cafe],
-            6 => ['amount' => $request->te]
+            1 => ['amount' => $request->p1],
+            2 => ['amount' => $request->p2],
+            3 => ['amount' => $request->p3],
+            4 => ['amount' => $request->p4],
+            5 => ['amount' => $request->p5],
+            6 => ['amount' => $request->p6]
         ], false);
         flash('El pedido a sido creado de forma exitosa!')->success();
         $orders = Order::orderBy('id','desc')->paginate(100);

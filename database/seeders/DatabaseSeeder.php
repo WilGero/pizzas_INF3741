@@ -40,66 +40,86 @@ class DatabaseSeeder extends Seeder
       
         $supplie=Supplie::create([
             'name'=>'masa de pizza',
-            'price'=>'7,00',
-            'description'=>'masa de pan de pizza pizzapan 265g',
+            'price'=>'7.5',
+            'description'=>'masa de pizza',
         ]);
         $supplie=Supplie::create([
             'name'=>'salsa de tomate',
-            'price'=>'2,00',
-            'description'=>'salsa de tomate caxamarka 80g',
+            'price'=>'2.5',
+            'description'=>'salsa de tomate',
         ]);
         $supplie=Supplie::create([
             'name'=>'jamon',
-            'price'=>'4,00',
-            'description'=>'jamon ingles 50g',
+            'price'=>'4.5',
+            'description'=>'jamon',
         ]);
         $supplie=Supplie::create([
             'name'=>'queso',
-            'price'=>'5,00',
-            'description'=>'queso flor de leche 50g',
+            'price'=>'5.5',
+            'description'=>'queso',
         ]);
         $supplie=Supplie::create([
             'name'=>'leche',
-            'price'=>'2,00',
-            'description'=>'leche pil 125ml',
+            'price'=>'2.5',
+            'description'=>'leche',
         ]);
         $supplie=Supplie::create([
             'name'=>'fruta',
-            'price'=>'1,00',
-            'description'=>'fruta de 100g',
+            'price'=>'1.5',
+            'description'=>'fruta',
+        ]);
+        $supplie=Supplie::create([
+            'name'=>'soda',
+            'price'=>'4.0',
+            'description'=>'soda',
+        ]);
+        $supplie=Supplie::create([
+            'name'=>'empanada',
+            'price'=>'4.0',
+            'description'=>'empanada',
+        ]);
+        $supplie=Supplie::create([
+            'name'=>'cafe',
+            'price'=>'3.0',
+            'description'=>'cafe',
+        ]);
+        $supplie=Supplie::create([
+            'name'=>'te',
+            'price'=>'3.0',
+            'description'=>'te',
         ]);
 
 
 
         $product=Product::create([
             'name'=>'pizza',
-            'price'=>'40,00',
-            'description'=>'pizza de 365g',
+            'price'=>'40.5',
+            'description'=>'pizza',
         ]);
         $product=Product::create([
             'name'=>'refresco natural',
-            'price'=>'5,00',
-            'description'=>'refresco de fruta de 225ml',
+            'price'=>'5.5',
+            'description'=>'refresco natural',
         ]);
         $product=Product::create([
-            'name'=>'refresco soda',
-            'price'=>'4,00',
-            'description'=>'refresco de soda de 500ml',
+            'name'=>'soda',
+            'price'=>'4.5',
+            'description'=>'soda',
         ]);
         $product=Product::create([
             'name'=>'empanada',
-            'price'=>'4,00',
-            'description'=>'empanada de queso',
+            'price'=>'4.5',
+            'description'=>'empanada',
         ]);
         $product=Product::create([
             'name'=>'cafe',
-            'price'=>'3,00',
-            'description'=>'empanada de queso',
+            'price'=>'3.5',
+            'description'=>'cafe',
         ]);
         $product=Product::create([
             'name'=>'te',
-            'price'=>'3,00',
-            'description'=>'empanada de queso',
+            'price'=>'3.5',
+            'description'=>'te',
         ]);
 
          
@@ -134,5 +154,9 @@ class DatabaseSeeder extends Seeder
             'phone'=>'ninguno',
             'direction'=>'ninguna',
         ]);
+
+
+
+
     }
 }

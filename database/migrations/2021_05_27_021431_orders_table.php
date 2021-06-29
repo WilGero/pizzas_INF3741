@@ -27,7 +27,7 @@ class OrdersTable extends Migration
             $table->unsignedBigInteger('order_id');
             $table->foreign('product_id')->references('id')->on('products');
             $table->foreign('order_id')->references('id')->on('orders');
-            $table->string('amount');
+            $table->float('amount');
             $table->timestamps();
         });
     }

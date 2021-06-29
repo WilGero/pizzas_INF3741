@@ -16,7 +16,7 @@ class SuppliesTable extends Migration
         Schema::create('supplies', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('price');
+            $table->float('price');
             $table->string('description');
             $table->timestamps();
         });

@@ -33,11 +33,27 @@
                                 <tr>
                                     <td>{{ $product->name }}</td>
                                     <td>{{ $product->pivot->amount }}</td>
-                                    <td>{{ $product->price }}</td>
+                                    <td>{{ $product->pivot->amount * $product->price }} Bs</td>
                                 </tr>
                                 @endforeach
                             </tbody>
                         </table>
+
+                        <div hidden>
+                            @php
+                                $total = 0
+                            @endphp
+                            @foreach($order->products as $product)
+                                {{ $total = $total + $product->pivot->amount * $product->price }}
+                            @endforeach
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Total') }}</label>
+                            <div class="col-md-3">
+                                <label class="form-control">{{ $total }} Bs</label>
+                            </div>
+                        </div>
 
                 </div>
             </div>

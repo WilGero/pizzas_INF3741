@@ -17,15 +17,25 @@
                             <th>Id</th>
                             <th>Usuario</th>
                             <th>Cliente</th>
+                            <th>Total</th>
                             <th>Acción</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($orders as $order)
                         <tr>
+                            <div hidden>
+                                @php
+                                $total = 0
+                                @endphp
+                                @foreach($order->products as $product)
+                                    {{ $total = $total + $product->pivot->amount * $product->price }}
+                                @endforeach
+                            </div>
                             <td>{{ $order->id }}</td>
                             <td>{{ $order->user->name }}</td>
                             <td>{{ $order->customer->name }}</td>
+                            <td>{{ $total }} Bs</td>
                             <td>
                                 <a href="{{ route('orders.edit', $order->id) }}" class="btn btn-warning">Detalles</a>
                                 <!--<a href="{{ route('orders.destroy', $order->id) }}" onclick="return confirm('¿Seguro que deseas eliminarlo?')" class="btn btn-danger">Eliminar</a> 
