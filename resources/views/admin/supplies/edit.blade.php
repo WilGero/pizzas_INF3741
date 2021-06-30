@@ -55,6 +55,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Editar') }}
                                 </button>
+                                <a class="btn btn-secondary" href="{{ route('supplies.index') }}" role="button">Cancelar</a>
                             </div>
                         </div>
                         

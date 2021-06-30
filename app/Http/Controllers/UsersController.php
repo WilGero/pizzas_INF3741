@@ -45,7 +45,7 @@ class UsersController extends Controller
             'email' => $user['email'],
             'password' => Hash::make($user['password']),
             'role' => 'ninguno',
-            'type' => 'member',
+            'type' => 'miembro',
             'photo' => 'ninguna',
         ]);
         flash('El usuario ' . $user->name . ' a sido creado de forma exitosa!')->success();

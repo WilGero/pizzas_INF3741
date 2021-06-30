@@ -24,7 +24,6 @@ class OrdersController extends Controller
             $orders->user;
             $orders->customer;
         });
-        //dd($orders);
         return view('admin.orders.index')->with('orders', $orders);
     }
 
@@ -61,7 +60,7 @@ class OrdersController extends Controller
         };
         flash('El pedido a sido creado de forma exitosa!')->success();
         $orders = Order::orderBy('id','desc')->paginate(100);
-        return view('admin.orders.index')->with('orders', $orders); 
+        return view('admin.orders.index')->with('orders', $orders);
     }
 
     /**
@@ -72,7 +71,10 @@ class OrdersController extends Controller
      */
     public function show($id)
     {
-        //
+        $order = Order::find($id);
+        $order->customer;
+        return view('admin.orders.show')
+            ->with('order', $order);
     }
 
     /**
@@ -83,9 +85,11 @@ class OrdersController extends Controller
      */
     public function edit($id)
     {
+        $customers = Customer::orderBy('ci', 'asc')->paginate();
         $order = Order::find($id);
         $order->customer;
         return view('admin.orders.edit')
+            ->with('customers', $customers)
             ->with('order', $order);
     }
 
@@ -98,7 +102,18 @@ class OrdersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $order = Order::find($id);
+        $user = auth()->user();
+        $order->user_id = $user->id;
+        $order->save();
+        $products = Product::orderBy('id', 'asc')->paginate();
+        foreach($products as $product){
+            $nombre = $product->name;
+            $order->products()->sync( [$product->id => ['amount' => $request->$nombre]], false);
+        };
+        flash('El pedido a sido editado de forma exitosa!')->success();
+        $orders = Order::orderBy('id','desc')->paginate(100);
+        return view('admin.orders.index')->with('orders', $orders); 
     }
 
     /**
@@ -109,6 +124,10 @@ class OrdersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $order = Order::find($id);
+        $order->delete();
+        flash('El pedido a sido borrado de forma exitosa!')->success();
+        $orders = Order::orderBy('id','desc')->paginate(100);
+        return view('admin.orders.index')->with('orders', $orders); 
     }
 }

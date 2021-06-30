@@ -246,13 +246,13 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
-        [
+        /*[
             'text'        => 'Paginas',
             'url'         => '#',
             'icon'        => 'far fa-fw fa-file',
             'label'       => 4,
             'label_color' => 'success',
-        ],
+        ],*/
         ['header' => 'CONFIGURAR CUENTA'],
         [
             'text' => 'Perfil',
@@ -269,7 +269,7 @@ return [
             'url'  => 'carrousels',
             'icon' => 'fas fa-fw fa-wrench',
         ],
-        [
+        /*[
             'text'    => 'Multi nivel',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
@@ -306,7 +306,7 @@ return [
                     'url'  => '#',
                 ],
             ],
-        ],
+        ],*/
         ['header' => 'FUNCIONES'],
         [
             'text'       => 'Usuarios',

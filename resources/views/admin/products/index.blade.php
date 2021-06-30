@@ -49,8 +49,10 @@
                             <td>{{ $cantidad }}</td>
                             <td>{{ $total }} Bs</td>
                             <td>
+                                <a href="{{ route('products.show', $product->id) }}" class="btn btn-success">Detalles</a>
                                 <a href="{{ route('products.edit', $product->id) }}" class="btn btn-warning">Editar</a>
-                                <a href="{{ route('products.destroy', $product->id) }}" onclick="return confirm('¿Seguro que deseas eliminarlo?')" class="btn btn-danger">Eliminar</a> 
+                                <!--<a href="{{ route('products.destroy', $product->id) }}" onclick="return confirm('¿Seguro que deseas eliminarlo?')" class="btn btn-danger">Eliminar</a> 
+                                -->
                             </td>
                         </tr>
                         @endforeach
