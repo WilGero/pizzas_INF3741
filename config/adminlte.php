@@ -265,12 +265,13 @@ return [
             'url'  => '#',
             'icon' => 'fas fa-fw fa-lock',
         ],
-        /*
+        
         [
-            'text' => 'Carrusel',
+            'text' => 'Ajustes',
             'url'  => 'carrousels',
             'icon' => 'fas fa-fw fa-wrench',
         ],
+        /*
         [
             'text'    => 'Multi nivel',
             'icon'    => 'fas fa-fw fa-share',
@@ -311,23 +312,23 @@ return [
         ],*/
         ['header' => 'FUNCIONES'],
         [
-            'text'       => 'Usuarios',
-            
-            'url'        => 'users',
-        ],
-        [
-            'text'       => 'Insumos',
-            
-            'url'        => 'supplies',
+            'text'       => 'Pedidos',
+            'url'        => 'orders',
         ],
         [
             'text'       => 'Productos',
-            
             'url'        => 'products',
         ],
         [
+            'text'       => 'Insumos',
+            'url'        => 'supplies',
+        ],
+        [
+            'text'       => 'Usuarios',
+            'url'        => 'users',
+        ],
+        [
             'text'       => 'Clientes',
-            
             'url'        => 'customers',
         ],
     ],

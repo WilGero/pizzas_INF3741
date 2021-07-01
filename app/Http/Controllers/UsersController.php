@@ -17,13 +17,8 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $user = auth()->user();
-        if($user->type == "administrador"){
-            $users = User::orderBy('id','desc')->paginate(100);
-            return view('admin.users.index')->with('users', $users);
-        }else{
-            return redirect()->route('home');
-        }
+        $users = User::orderBy('id','desc')->paginate(100);
+        return view('admin.users.index')->with('users', $users);
     }
 
     /**

@@ -18,7 +18,7 @@
                             <th>Id</th>
                             <th>Nombre</th>
                             <th>Correo</th>
-                            <th>Rol</th>
+                            <th>Puesto de Trabajo</th>
                             <th>Tipo</th>
                             <th>Acción</th>
                         </tr>
@@ -29,11 +29,27 @@
                             <td>{{ $user->id }}</td>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
-                            <td>{{ $user->role }}</td>
-                            <td>{{ $user->type }}</td>
                             <td>
-                                <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning">Editar</a>
-                                <a href="{{ route('users.destroy', $user->id) }}" onclick="return confirm('¿Seguro que deseas eliminarlo?')" class="btn btn-danger">Eliminar</a>
+                                @if($user->role == "cajero")
+                                    <span class="btn btn-warning">{{ $user->role }}</span>
+                                @elseif($user->role == "elaborador")
+                                    <span class="btn btn-info">{{ $user->role }}</span>
+                                @elseif($user->role == "mesero")
+                                    <span class="btn btn-success">{{ $user->role }}</span>
+                                @else
+                                    <span class="btn btn-danger">{{ $user->role }}</span>
+                                @endif
+                            </td>
+                            <td>
+                                @if($user->type == "miembro")
+                                    <span class="btn btn-success">{{ $user->type }}</span>
+                                @else
+                                    <span class="btn btn-danger">{{ $user->type }}</span>
+                                @endif
+                            </td>
+                            <td>
+                                <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary">Editar</a>
+                                <a href="{{ route('users.destroy', $user->id) }}" onclick="return confirm('¿Seguro que deseas eliminarlo?')" class="btn btn-secondary">Eliminar</a>
                             </td>
                         </tr>
                         @endforeach

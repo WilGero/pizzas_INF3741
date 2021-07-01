@@ -29,14 +29,6 @@ class HomeController extends Controller
      */
     public function index()
     {   
-        $orders = Order::orderBy('id','desc')->paginate(100);
-        $orders->each(function($orders){
-            $orders->user;
-            $orders->customer;
-        });
-        $user = auth()->user();
-        return view('admin.orders.index')
-            ->with('orders', $orders)
-            ->with('user', $user);
+        return view('home');
     }
 }

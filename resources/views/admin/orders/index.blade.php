@@ -20,8 +20,8 @@
                             <th>Id</th>
                             <th>Usuario</th>
                             <th>Cliente</th>
-                            <th>Precio Total</th>
                             <th>Estado</th>
+                            <th>Precio Total</th>
                             <th>Acción</th>
                         </tr>
                     </thead>
@@ -39,11 +39,21 @@
                             <td>{{ $order->id }}</td>
                             <td>{{ $order->user->name }}</td>
                             <td>{{ $order->customer->name }}</td>
-                            <td>{{ $order->state }}</td>
+                            <td>
+                                @if($order->state == "pendiente")
+                                    <span class="btn btn-warning">{{ $order->state }}</span>
+                                @elseif($order->state == "elaborado")
+                                    <span class="btn btn-info">{{ $order->state }}</span>
+                                @elseif($order->state == "entregado")
+                                    <span class="btn btn-success">{{ $order->state }}</span>
+                                @else
+                                    <span class="btn btn-danger">{{ $order->state }}</span>
+                                @endif
+                            </td>
                             <td>{{ $total }} Bs</td>
                             <td>
-                                <a href="{{ route('orders.show', $order->id) }}" class="btn btn-success">Detalles</a>
-                                <a href="{{ route('orders.edit', $order->id) }}" class="btn btn-warning">Editar</a>
+                                <a href="{{ route('orders.edit', $order->id) }}" class="btn btn-primary">Editar</a>
+                                <a href="{{ route('orders.show', $order->id) }}" class="btn btn-secondary">Detalles</a>
                                 <!--<a href="{{ route('orders.destroy', $order->id) }}" onclick="return confirm('¿Seguro que deseas eliminarlo?')" class="btn btn-danger">Eliminar</a> 
                                 -->
                             </td>
