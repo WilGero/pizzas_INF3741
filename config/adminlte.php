@@ -226,6 +226,7 @@ return [
 
     'menu' => [
         // Navbar items:
+        /*
         [
             'type'         => 'navbar-search',
             'text'         => 'search',
@@ -246,7 +247,7 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
-        /*[
+        [
             'text'        => 'Paginas',
             'url'         => '#',
             'icon'        => 'far fa-fw fa-file',
@@ -264,12 +265,13 @@ return [
             'url'  => '#',
             'icon' => 'fas fa-fw fa-lock',
         ],
+        /*
         [
             'text' => 'Carrusel',
             'url'  => 'carrousels',
             'icon' => 'fas fa-fw fa-wrench',
         ],
-        /*[
+        [
             'text'    => 'Multi nivel',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
@@ -310,22 +312,22 @@ return [
         ['header' => 'FUNCIONES'],
         [
             'text'       => 'Usuarios',
-            'icon_color' => 'red',
+            
             'url'        => 'users',
         ],
         [
             'text'       => 'Insumos',
-            'icon_color' => 'yellow',
+            
             'url'        => 'supplies',
         ],
         [
             'text'       => 'Productos',
-            'icon_color' => 'cyan',
+            
             'url'        => 'products',
         ],
         [
             'text'       => 'Clientes',
-            'icon_color' => 'green',
+            
             'url'        => 'customers',
         ],
     ],

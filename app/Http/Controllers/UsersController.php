@@ -17,8 +17,13 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::orderBy('id','desc')->paginate(100);
-        return view('admin.users.index')->with('users', $users);
+        $user = auth()->user();
+        if($user->type == "administrador"){
+            $users = User::orderBy('id','desc')->paginate(100);
+            return view('admin.users.index')->with('users', $users);
+        }else{
+            return redirect()->route('home');
+        }
     }
 
     /**
@@ -44,7 +49,7 @@ class UsersController extends Controller
             'name' => $user['name'],
             'email' => $user['email'],
             'password' => Hash::make($user['password']),
-            'role' => 'ninguno',
+            'role' => 'cajero',
             'type' => 'miembro',
             'photo' => 'ninguna',
         ]);

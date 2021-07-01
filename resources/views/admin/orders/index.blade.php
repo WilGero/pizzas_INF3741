@@ -7,7 +7,10 @@
 <div class="container">
     
     <div class="row justify-content-center">
-        <p><a href="{{ route('orders.create') }}" class="btn btn-primary">Registrar nuevo pedido</a></p>
+        @if($user->role == "supervisor" || $user->role == "mesero")
+            <p><a href="{{ route('orders.create') }}" class="btn btn-primary">Registrar nuevo pedido</a></p>
+        @else
+        @endif
     </div>
         <div class="card">
             <div class="card-header">{{ __('Pedidos') }}</div>         
@@ -18,6 +21,7 @@
                             <th>Usuario</th>
                             <th>Cliente</th>
                             <th>Precio Total</th>
+                            <th>Estado</th>
                             <th>Acción</th>
                         </tr>
                     </thead>
@@ -35,6 +39,7 @@
                             <td>{{ $order->id }}</td>
                             <td>{{ $order->user->name }}</td>
                             <td>{{ $order->customer->name }}</td>
+                            <td>{{ $order->state }}</td>
                             <td>{{ $total }} Bs</td>
                             <td>
                                 <a href="{{ route('orders.show', $order->id) }}" class="btn btn-success">Detalles</a>

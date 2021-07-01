@@ -30,21 +30,22 @@
                             </div>
                         </div>
 
-                        @foreach($order->products as $product)
-
                         <div class="form-group row">
-                            <label for="amount" class="col-md-4 col-form-label text-md-right">{{ $product->name }}</label>
-                            <div class="col-md-3">
-                                <input id="amount" type="text" class="form-control @error('amount') is-invalid @enderror" name="{{ $product->name }}" value="{{ $product->pivot->amount }}" autocomplete="amount" autofocus required>
-                                @error('amount')
+                            <label for="state" class="col-md-4 col-form-label text-md-right">{{ __('Estado') }}</label>
+                            <div class="col-md-6">
+                            <select class="form-control" id="state" name="state" required>
+                                    <option value="pendiente">pendiente</option>
+                                    <option value="elaborado">elaborado</option>
+                                    <option value="entregado">entregado</option>
+                                    <option value="pagado">pagado</option>
+                            </select>
+                                @error('state')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
                         </div>
-
-                        @endforeach
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">

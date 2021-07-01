@@ -15,8 +15,13 @@ class CustomersController extends Controller
      */
     public function index()
     {
-        $customers = Customer::orderBy('id','desc')->paginate(100);
-        return view('admin.customers.index')->with('customers', $customers);
+        $user = auth()->user();
+        if($user->type == "administrador"){
+            $customers = Customer::orderBy('id','desc')->paginate(100);
+            return view('admin.customers.index')->with('customers', $customers);
+        }else{
+            return redirect()->route('home');
+        }
     }
 
     /**

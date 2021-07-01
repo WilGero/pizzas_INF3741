@@ -41,7 +41,12 @@
                         <div class="form-group row">
                             <label for="role" class="col-md-4 col-form-label text-md-right">{{ __('Rol') }}</label>
                             <div class="col-md-6">
-                                <input id="role" type="text" class="form-control @error('role') is-invalid @enderror" name="role" value="{{ $user->role }}" required autocomplete="role" autofocus>
+                            <select class="form-control" id="role" name="role" required>
+                                    <option value="cajero">cajero</option>
+                                    <option value="elaborador">elaborador</option>
+                                    <option value="mesero">mesero</option>
+                                    <option value="supervisor">supervisor</option>
+                            </select>
                                 @error('role')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -53,7 +58,10 @@
                         <div class="form-group row">
                             <label for="type" class="col-md-4 col-form-label text-md-right">{{ __('Tipo') }}</label>
                             <div class="col-md-6">
-                                <input id="type" type="text" class="form-control @error('type') is-invalid @enderror" name="type" value="{{ $user->type }}" required autocomplete="type" autofocus>
+                            <select class="form-control" id="type" name="type" required>
+                                    <option value="miembro">miembro</option>>
+                                    <option value="administrador">administrador</option>
+                            </select>
                                 @error('type')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

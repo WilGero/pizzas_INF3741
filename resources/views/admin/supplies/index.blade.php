@@ -31,9 +31,10 @@
                                 $cantidad = 0
                                 @endphp
                                 @foreach($supplie->products as $product)
+                                    {{ $cantidad = $cantidad + $product->pivot->amount}}
                                     @foreach($product->orders as $order)
-                                        {{ $cantidad = $cantidad + $order->pivot->amount}}
-                                    @endforeach
+                                        {{ $cantidad = $cantidad * $order->pivot->amount}}
+                                    @endforeach    
                                 @endforeach
                             </div>
                             <div hidden>
@@ -41,9 +42,10 @@
                                 $total = 0
                                 @endphp
                                 @foreach($supplie->products as $product)
+                                    {{ $total = $total + $product->pivot->amount}}
                                     @foreach($product->orders as $order)
-                                        {{ $total = $total + $order->pivot->amount * $supplie->price }}
-                                    @endforeach
+                                        {{ $total = $total * $order->pivot->amount * $supplie->price}}
+                                    @endforeach    
                                 @endforeach
                             </div>
                             <td>{{ $supplie->id }}</td>

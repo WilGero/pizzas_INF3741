@@ -34,6 +34,9 @@ class HomeController extends Controller
             $orders->user;
             $orders->customer;
         });
-        return view('admin.orders.index')->with('orders', $orders);
+        $user = auth()->user();
+        return view('admin.orders.index')
+            ->with('orders', $orders)
+            ->with('user', $user);
     }
 }

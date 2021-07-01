@@ -16,9 +16,15 @@ class ProductsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $products = Product::orderBy('id','desc')->paginate(100);
-        return view('admin.products.index')->with('products', $products);
+    {   
+        $user = auth()->user();
+        if($user->type == "administrador"){
+            $products = Product::orderBy('id','desc')->paginate(100);
+            return view('admin.products.index')->with('products', $products);
+        }else{
+            return redirect()->route('home');
+        }
+
     }
 
     /**
@@ -88,6 +94,9 @@ class ProductsController extends Controller
     public function update(Request $request, $id)
     {
         $product = Product::find($id);
+        $product->name = $request->name;
+        $product->price = $request->price;
+        $product->description = $request->description;
         $product->save();
         $supplies = Supplie::orderBy('id', 'asc')->paginate();
         foreach($supplies as $supplie){
