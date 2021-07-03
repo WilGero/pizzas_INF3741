@@ -13,6 +13,7 @@ class Supplie extends Model
         'name',
         'price',
         'description',
+        'amount',
     ];
     public function products()
     {

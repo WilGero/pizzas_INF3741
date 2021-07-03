@@ -7,19 +7,17 @@
 <div class="container">
     
     <div class="row justify-content-center">
-        @if($user->role == "supervisor" || $user->role == "mesero")
-            <p><a href="{{ route('orders.create') }}" class="btn btn-primary">Registrar nuevo pedido</a></p>
-        @else
-        @endif
+    <p><a href="{{ route('orders.create') }}" class="btn btn-primary">Registrar nuevo pedido</a></p>
     </div>
         <div class="card">
-            <div class="card-header">{{ __('Pedidos') }}</div>         
+            <div class="card-header"><h3>{{ __('Pedidos') }}</h3></div>         
                 <table class="table">
                     <thead>
                         <tr>
                             <th>Id</th>
                             <th>Usuario</th>
                             <th>Cliente</th>
+                            <th>Fecha y Hora</th>
                             <th>Estado</th>
                             <th>Precio Total</th>
                             <th>Acción</th>
@@ -39,6 +37,7 @@
                             <td>{{ $order->id }}</td>
                             <td>{{ $order->user->name }}</td>
                             <td>{{ $order->customer->name }}</td>
+                            <td>{{ $order->created_at }}</td>
                             <td>
                                 @if($order->state == "pendiente")
                                     <span class="btn btn-warning">{{ $order->state }}</span>

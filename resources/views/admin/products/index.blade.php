@@ -10,7 +10,7 @@
         <p><a href="{{ route('products.create') }}" class="btn btn-primary">Registrar nuevo producto</a></p>
     </div>
         <div class="card">
-            <div class="card-header">{{ __('Productos') }}</div>         
+            <div class="card-header"><h3>{{ __('Productos') }}</h3></div>         
                 <table class="table">
                     <thead>
                         <tr>

@@ -9,7 +9,7 @@
     </div>
     <div class="container">        
         <div class="card">
-            <div class="card-header">{{ __('Clientes') }}</div>
+            <div class="card-header"><h3>{{ __('Clientes') }}</h3></div>
                 <table class="table">
                     <thead>
                         <tr>

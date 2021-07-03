@@ -11,7 +11,7 @@
     
     <div class="container">        
         <div class="card">
-            <div class="card-header">{{ __('Usuarios') }}</div>
+            <div class="card-header"><h3>{{ __('Usuarios') }}</h3></div>
                 <table class="table">
                     <thead>
                         <tr>

@@ -18,6 +18,7 @@ class SuppliesTable extends Migration
             $table->string('name');
             $table->float('price');
             $table->string('description');
+            $table->float('amount');
             $table->timestamps();
         });
     }

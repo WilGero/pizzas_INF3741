@@ -30,11 +30,12 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+
                         @foreach($products as $product)
 
-                        <div class="form-group row">
-                            <label for="amount" class="col-md-4 col-form-label text-md-right">{{ $product->name }}</label>
-                            <div class="col-md-3">
+                            <label for="amount" class="col-md-2 col-form-label text-md-right">{{ $product->name }}</label>
+                            <div class="col-md-4 mb-4">
                                 <input id="amount" type="text" class="col form-control @error('amount') is-invalid @enderror" name="{{ $product->name }}" value="0" autocomplete="amount" autofocus required>
                                 @error('amount')
                                     <span class="invalid-feedback" role="alert">
@@ -42,9 +43,10 @@
                                     </span>
                                 @enderror
                             </div>
-                        </div>
 
                         @endforeach
+
+                        </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">

@@ -20,6 +20,13 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Fecha/Hora') }}</label>
+                            <div class="col-md-6">
+                                <label class="form-control">{{ $order->created_at }}</label>
+                            </div>
+                        </div>
+
                         <table class="table">
                             <thead>
                                 <tr>

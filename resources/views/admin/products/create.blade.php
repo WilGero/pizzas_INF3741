@@ -16,7 +16,7 @@
 
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
-                            <div class="col-md-3">
+                            <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -28,7 +28,7 @@
 
                         <div class="form-group row">
                             <label for="price" class="col-md-4 col-form-label text-md-right">{{ __('Precio') }}</label>
-                            <div class="col-md-3">
+                            <div class="col-md-6">
                                 <input id="price" type="text" class="form-control @error('price') is-invalid @enderror" name="price" value="{{ old('price') }}" required autocomplete="price" autofocus>
                                 @error('price')
                                     <span class="invalid-feedback" role="alert">
@@ -50,11 +50,12 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+
                         @foreach($supplies as $supplie)
 
-                        <div class="form-group row">
-                            <label for="amount" class="col-md-4 col-form-label text-md-right">{{ $supplie->name }}</label>
-                            <div class="col-md-3">
+                            <label for="amount" class="col-md-2 col-form-label text-md-right">{{ $supplie->name }}</label>
+                            <div class="col-md-4 mb-4">
                                 <input id="amount" type="text" class="col form-control @error('amount') is-invalid @enderror" name="{{ $supplie->name }}" value="0" autocomplete="amount" autofocus required>
                                 @error('amount')
                                     <span class="invalid-feedback" role="alert">
@@ -62,9 +63,10 @@
                                     </span>
                                 @enderror
                             </div>
-                        </div>
 
                         @endforeach
+
+                        </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">

@@ -13,22 +13,6 @@
                 <div class="card-body">
                     <form method="PUT" action="{{ route('orders.update', $order->id) }}">
                         @csrf
-                        
-                        <div class="form-group row">
-                            <label for="customer_id" class="col-md-4 col-form-label text-md-right">{{ __('Cliente') }}</label>
-                            <div class="col-md-6">
-                            <select class="form-control" id="customer_id" name="customer_id">
-                                @foreach($customers as $customer)
-                                    <option value="{{ $customer->id }}">{{ $customer->ci }}</option>
-                                @endforeach
-                            </select>
-                                @error('customer_id')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
 
                         <div class="form-group row">
                             <label for="state" class="col-md-4 col-form-label text-md-right">{{ __('Estado') }}</label>

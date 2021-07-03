@@ -43,6 +43,7 @@ class SuppliesController extends Controller
             'name' => $supplie['name'],
             'price' => $supplie['price'],
             'description' => $supplie['description'],
+            'amount' => $supplie['amount'],
         ]);
         flash('El insumo ' . $supplie->name . ' a sido registrado de forma exitosa!')->success();
         $supplies = Supplie::orderBy('id','desc')->paginate(100);
@@ -85,6 +86,7 @@ class SuppliesController extends Controller
         $supplie->name = $request->name;
         $supplie->price = $request->price;
         $supplie->description = $request->description;
+        $supplie->amount = $request->amount;
         $supplie->save();
         flash('El insumo ' . $supplie->name . ' a sido editado de forma exitosa!')->success();
         $supplies = Supplie::orderBy('id','desc')->paginate(100);
