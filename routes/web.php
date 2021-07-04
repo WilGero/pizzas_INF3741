@@ -32,6 +32,10 @@ Route::get('/', function () {
 Route::middleware(['prefix', 'admin'])->group(function () {
 
 });
+
+Route::get('admin/home', [App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::resource('users',UsersController::class);
 Route::get('users/{id}/destroy', [UsersController::class, 'destroy'])->name('users.destroy');
 Route::get('users/{id}/update', [UsersController::class, 'update'])->name('users.update');
@@ -56,8 +60,6 @@ Route::resource('carrousels',CarrouselController::class);
 // Guardar foto para carrucel
 Route::post('caruselimage', [CarrouselController::class, 'caruselimage']);
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //Perfil
 Route::resource('profile',ProfileController::class);

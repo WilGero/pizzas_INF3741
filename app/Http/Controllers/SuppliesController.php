@@ -17,7 +17,11 @@ class SuppliesController extends Controller
     public function index()
     {
         $supplies = Supplie::orderBy('id','desc')->paginate(100);
-        return view('admin.supplies.index')->with('supplies', $supplies);
+        if (auth()->user()->type == "administrador") {
+            return view('admin.supplies.index')->with('supplies', $supplies);
+        }else{
+            return view('home');
+        }
     }
 
     /**

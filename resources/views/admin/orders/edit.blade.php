@@ -20,7 +20,6 @@
                             <select class="form-control" id="state" name="state" required>
                                     <option value="pendiente">pendiente</option>
                                     <option value="elaborado">elaborado</option>
-                                    <option value="entregado">entregado</option>
                                     <option value="pagado">pagado</option>
                             </select>
                                 @error('state')

@@ -43,11 +43,14 @@
                             </thead>
                             <tbody>
                                 @foreach($product->supplies as $supplie)
-                                <tr>
-                                    <td>{{ $supplie->name }}</td>
-                                    <td>{{ $supplie->pivot->amount }}</td>
-                                    <td>{{ $supplie->pivot->amount * $supplie->price }} Bs</td>
-                                </tr>
+                                    @if($supplie->pivot->amount == 0)
+                                    @else    
+                                        <tr>
+                                            <td>{{ $supplie->name }}</td>
+                                            <td>{{ $supplie->pivot->amount }}</td>
+                                            <td>{{ $supplie->pivot->amount * $supplie->price }} Bs</td>
+                                        </tr>
+                                    @endif
                                 @endforeach
                             </tbody>
                         </table>

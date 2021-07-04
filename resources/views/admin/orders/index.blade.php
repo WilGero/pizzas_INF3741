@@ -42,8 +42,6 @@
                                 @if($order->state == "pendiente")
                                     <span class="btn btn-warning">{{ $order->state }}</span>
                                 @elseif($order->state == "elaborado")
-                                    <span class="btn btn-info">{{ $order->state }}</span>
-                                @elseif($order->state == "entregado")
                                     <span class="btn btn-success">{{ $order->state }}</span>
                                 @else
                                     <span class="btn btn-danger">{{ $order->state }}</span>

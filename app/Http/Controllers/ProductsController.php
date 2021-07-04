@@ -18,7 +18,11 @@ class ProductsController extends Controller
     public function index()
     {   
         $products = Product::orderBy('id','desc')->paginate(100);
-        return view('admin.products.index')->with('products', $products);
+        if (auth()->user()->type == "administrador") {
+            return view('admin.products.index')->with('products', $products);
+        }else{
+            return view('home');
+        }
 
     }
 

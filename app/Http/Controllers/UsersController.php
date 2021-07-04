@@ -18,7 +18,11 @@ class UsersController extends Controller
     public function index()
     {
         $users = User::orderBy('id','desc')->paginate(100);
-        return view('admin.users.index')->with('users', $users);
+        if (auth()->user()->type == "administrador") {
+            return view('admin.users.index')->with('users', $users);
+        }else{
+            return view('home');
+        }
     }
 
     /**
